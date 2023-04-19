@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>
+  {% include 'navbar.html' %}
+    <div class="login">
+        <div class="main"></div>
+            <div class="header">
+                
+            </div>
+            <form class="form" method="POST" action="{% url 'loginUser' %}">
+              {% csrf_token %}
+                
+                <div class="login-box">
+                  <div class='er'><h2>Вход</h2>
+                    <h2>Регистрация</h2></div>
+                    
+                    <div class="input-form">
+                      
+                      <input type="text" placeholder="Имя пользователя" name='username'>
+                    </div>
+                    <div class="input-form">
+                     
+                      
+                      <input type="text" class="icon" placeholder="Пароль" name="password">
+                    </div>
+                    {% comment %} <div class='input-form-submit'>
+                        <input type="button" class="btn" value="Зарегистрироваться">
+                    </div> {% endcomment %}
+                    <div class="textbox-1">
+                      <!-- <h1>E-mail</h1> -->
+                      <!-- <input type="text" placeholder="Введите e-mail"> -->
+                      <div id="_checkBox"><input type="checkbox" value="None" id="roundedOne" name="check" checked>
+                      <label for="roundedOne"></label>запомнить меня</div>
+                      
+                    </div>
+                    <div class="input-form">
+                        <button>Войти</button>
+                    </div>
+                    <div class="input-form"><h6>   Забыли пароль?</h6> </div>
+                    <div class="line"></div>
+              
+                    <div class="input-form">
+                      <h6 class="erba">Войти c помощью</h6>
+                      <!-- <input type="repit-password" placeholder="Repit-Password"> -->
+                    </div>
+                    <div class="input-form">
+                      <div class="textbox-logo">
+                        <div class="img"><img src="{% static 'styles/face.png' %}" alt=""></div>
+                        <div class="img"><img src="{% static 'styles/go.png' %}" alt=""></div>
+                        <div class="img"><img src="{% static 'styles/ins.png' %}" alt=""></div>
+                      </div>
+                      <!-- <input type="repit-password" placeholder="Repit-Password"> -->
+                    </div>
+                    {% comment %} <div class="input-form">
+                      <h1>Нет аккаунта?</h1>
+                      <!-- <input type="repit-password" placeholder="Repit-Password"> -->
+                    </div> {% endcomment %}
+                    
+              
+                  </div>
+                {% comment %} <div class="input-form">
+                    <input type="text" placeholder="Login" name="username">
+                </div>
+                <div class="input-form">
+                    <input type="password" placeholder="Password" name="password">
+                </div>
+                <div class="forgotPassword">
+                    <div id="_checkBox"> <input type="checkbox" value="None" id="roundedOne" name="check" checked />
+                        <label for="roundedOne"></label>Remember my password</div>
+                </div>
+                <div class="input-form-submit">
+                    <input type="submit" value="Log in">
+                    <br> {% endcomment %}
+                    <div class="message">
+                      {% if messages %}
+                        {% for message in messages %}
+                          <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+       
+            </form>
+           
+        </div>
+      
+    </div>
+ 
+</body>
+</html>
